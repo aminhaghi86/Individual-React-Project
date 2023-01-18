@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Counter from "./components/Counter";
+import GithubUsers from "./components/GithubUsers";
+import Colors from "./components/Colors";
+import MemoHook from "./components/MemoHook";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [showCounter, setShowCounter] = useState(false);
+	return (
+		<>
+			<div className="App">
+				<h3>React Componnent LifeCycle</h3>
+				<button onClick={() => setShowCounter(!showCounter)}>
+					{showCounter ? "hide counter" : "show counter"}
+				</button>
+				{showCounter && <Counter />}
+				<GithubUsers />
+				<Colors />
+				<MemoHook />
+			</div>
+		</>
+	);
 }
 
 export default App;
